@@ -26,9 +26,12 @@ export default function NewToDoCard(props:Props) {
     }
 
     return (
-        <div className="new-todo-card">
-            <input className="new-todo-input" value={inputText} onChange={handleTextChange}/>
-            <button onClick={addToDo}>save</button>
+        <div>
+            <form className="new-todo-card">
+                <input className="new-todo-input" value={inputText} onChange={handleTextChange}/>
+                <button onClick={addToDo}>save</button>
+            </form>
+
         </div>
     );
 };
