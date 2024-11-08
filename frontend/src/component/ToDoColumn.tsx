@@ -1,6 +1,7 @@
 import {ToDoStatus} from "../ToDoStatus.ts";
 import {ToDo} from "../ToDo.ts";
 import ToDoCard from "./ToDoCard.tsx";
+import NewToDoCard from "./NewToDoCard.tsx";
 
 type Props = {
     status: ToDoStatus,
@@ -16,6 +17,12 @@ export default function ToDoColumn(props: Props) {
                     return <ToDoCard todo={todo} key={index}/>
                 })
             }
+            <div>
+                {
+                    (props.status=="OPEN") && <NewToDoCard/>
+                }
+            </div>
+
         </div>
     );
 };
