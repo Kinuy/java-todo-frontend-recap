@@ -12,6 +12,7 @@ type Props = {
 export default function ToDoCard(props: Props) {
 
     const [description,setDescription] = useState(props.todo.description)
+    const [status,setToDoStatus] = useState(props.todo.status)
 
     function deleteToDo(){
         axios.delete("api/todo/"+props.todo.id)
@@ -39,13 +40,38 @@ export default function ToDoCard(props: Props) {
     function moveToDoRight(){
 
     }
+    function move(direction: string){
+        let newStatus = direction
+
+        setToDoStatus(newStatus)
+
+        console.log(direction)
+
+
+
+        axios.put("api/todo/"+props.todo.id,{
+            ...props.todo,
+            status: newStatus
+        } as ToDo)
+            .then(props.updateToDoList)
+    }
 
     return (
         <div className="todo-card">
             <input  value={description} onInput={updateToDo}/>
-            <button className="move-left-button" onClick={moveToDoLeft}>move left</button>
+            {props.todo.status === "OPEN" ? <div></div> : (
+                props.todo.status === "IN_PROGRESS" ?
+                    <button className="move-left-button" onClick={()=>move("OPEN")}>move left</button> :
+                    <button className="move-left-button" onClick={()=>move("IN_PROGRESS")}>move left</button>
+            )}
+
             <button className="delete-button" onClick={deleteToDo}>delete</button>
-            <button className="move-right-button" onClick={moveToDoRight}>move right</button>
+            {props.todo.status === "DONE" ? <div></div> : (
+                props.todo.status === "IN_PROGRESS" ?
+                    <button className="move-right-button" onClick={()=>move("DONE")}>move right</button> :
+                    <button className="move-right-button" onClick={()=>move("IN_PROGRESS")}>move right</button>
+            )}
+
         </div>
     );
 };
