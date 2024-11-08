@@ -10,7 +10,7 @@ type Props = {
 
 export default function NewToDoCard(props:Props) {
 
-    const [inputText,setInputText] = useState("")
+    const [inputText,setInputText] = useState("--Put your task here--")
 
     function handleTextChange(event: ChangeEvent<HTMLInputElement>){
 
@@ -19,7 +19,7 @@ export default function NewToDoCard(props:Props) {
     }
 
     function addToDo(){
-        setInputText("");
+        setInputText("--Put your task here--");
         axios.post("api/todo",{
                 description:inputText,
                 status:"OPEN"

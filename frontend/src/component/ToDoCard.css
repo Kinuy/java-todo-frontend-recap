@@ -1,5 +1,7 @@
 .todo-card {
+    display: block;
 
+    flex-direction: column;
     font-family: Arial, sans-serif;
 
     font-size: 1.6rem;
@@ -7,6 +9,7 @@
     padding: 10px;
     border: 2px solid hsla(0, 0%, 80%, 0.5);
     border-radius: 5px;
+    margin-bottom: 5px;
     color: hsla(0, 0%, 0%, 0.5);
 }
 
@@ -30,21 +33,21 @@
 
 
 button{
+    flex-direction: row;
+    justify-content: center;
     font-size: 1rem;
     font-weight: bold;
     padding: 5px 5px;
     color: white;
     border: none;
+    width: 100px;
+    max-width: 100px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.5s ease;
 }
 
-.move-left-button, .move-right-button, .delete-button{
-    padding: 1px 2px;
-    font-size: 1rem;
-    margin-left: 5px;
-}
+
 
 .add-button{
     background-color: hsl(125,47%,54%);
@@ -58,19 +61,20 @@ button{
 .delete-button:hover{
     background-color: hsl(10,90%,40%);
 }
-.move-right-button{
+.move-button{
     background-color: hsl(207,90%,60%);
 }
-.move-right-button:hover{
+.move-button:hover{
     background-color: hsl(207,90%,50%);
 }
 input[type="text"]{
-    text-align: center;
-    width: 80%;
-    grid-column: 1/-1;
     font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    width: 90%;
+    grid-column: 1/-1;
     padding: 10px;
-    border: 2px solid hsla(0,0%,80%,0.5);
+    border: 2px solid hsla(0,0%,80%,0.1);
     border-radius: 5px;
     color: hsla(0,0%,0%,0.5);
 }

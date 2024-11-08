@@ -34,12 +34,6 @@ export default function ToDoCard(props: Props) {
         } as ToDo)
     }
 
-    function moveToDoLeft(){
-
-    }
-    function moveToDoRight(){
-
-    }
     function move(direction: string){
         let newStatus = direction
 
@@ -58,18 +52,19 @@ export default function ToDoCard(props: Props) {
 
     return (
         <div className="todo-card">
-            <input  value={description} onInput={updateToDo}/>
+            <input type="text" value={description} onInput={updateToDo}/>
+
             {props.todo.status === "OPEN" ? <div></div> : (
                 props.todo.status === "IN_PROGRESS" ?
-                    <button className="move-left-button" onClick={()=>move("OPEN")}>move left</button> :
-                    <button className="move-left-button" onClick={()=>move("IN_PROGRESS")}>move left</button>
+                    <button className="move-button" onClick={()=>move("OPEN")}>left</button> :
+                    <button className="move-button" onClick={()=>move("IN_PROGRESS")}>left</button>
             )}
 
             <button className="delete-button" onClick={deleteToDo}>delete</button>
             {props.todo.status === "DONE" ? <div></div> : (
                 props.todo.status === "IN_PROGRESS" ?
-                    <button className="move-right-button" onClick={()=>move("DONE")}>move right</button> :
-                    <button className="move-right-button" onClick={()=>move("IN_PROGRESS")}>move right</button>
+                    <button className="move-button" onClick={()=>move("DONE")}>right</button> :
+                    <button className="move-button" onClick={()=>move("IN_PROGRESS")}>right</button>
             )}
 
         </div>
