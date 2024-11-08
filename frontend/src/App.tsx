@@ -28,7 +28,7 @@ export default function App() {
           <h1>My ToDo App</h1>
           {
             ToDoStatusList.map((status, index) => {
-              return <ToDoColumn status={status} todos={todos.filter(todo => todo.status === status)} key={index}/>;
+              return <ToDoColumn status={status} todos={todos.filter(todo => todo.status === status)} key={index} updateToDoList={getTodos}/>;
             })}
         </div>
       </>

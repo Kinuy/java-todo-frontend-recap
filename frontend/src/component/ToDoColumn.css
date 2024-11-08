@@ -1,5 +1,8 @@
 .todo-column{
-    display: flex;
+    font-family: Arial, sans-serif;
+    display: block;
     justify-content: space-evenly;
+    flex-direction: column;
+
 
 }

@@ -1,8 +1,13 @@
+
+import "./ToDoCard.css"
 import {ChangeEvent, useState} from "react";
 import axios from "axios";
 
+type Props = {
+    updateToDoList: ()=>void
+}
 
-export default function NewToDoCard() {
+export default function NewToDoCard(props:Props) {
 
     const [inputText,setInputText] = useState("")
 
@@ -16,6 +21,7 @@ export default function NewToDoCard() {
                 description:inputText,
                 status:"OPEN"
             })
+            .then(props.updateToDoList);
         setInputText("");
     }
 
