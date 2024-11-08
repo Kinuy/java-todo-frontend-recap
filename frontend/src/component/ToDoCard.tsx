@@ -37,10 +37,10 @@ export default function ToDoCard(props: Props) {
 
     return (
         <div className="todo-card">
-            <input value={description} onInput={updateToDo}/>
-            <button onClick={moveToDoLeft}>move left</button>
-            <button onClick={deleteToDo}>delete</button>
-            <button onClick={moveToDoRight}>move right</button>
+            <input type="text" value={description} onInput={updateToDo}/>
+            <button className="move-left-button" onClick={moveToDoLeft}>move left</button>
+            <button className="delete-button" onClick={deleteToDo}>delete</button>
+            <button className="move-right-button" onClick={moveToDoRight}>move right</button>
         </div>
     );
 };

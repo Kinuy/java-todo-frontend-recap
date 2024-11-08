@@ -1,6 +1,5 @@
 .todo-card {
-    display: flex;
-    flex-direction: column;
+
     font-family: Arial, sans-serif;
 
     font-size: 1.6rem;
@@ -27,12 +26,51 @@
     padding: 0;
 }
 
-.new-todo-card button{
-    justify-self: center;
-    min-width: 50px;
+
+
+
+button{
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 5px 5px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
 }
 
-.new-todo-input{
-    flex-direction: column;
-    min-width: 10px;
+.move-left-button, .move-right-button, .delete-button{
+    padding: 1px 2px;
+    font-size: 1rem;
+    margin-left: 5px;
+}
+
+.add-button{
+    background-color: hsl(125,47%,54%);
+}
+.add-button:hover{
+    background-color: hsl(125,47%,44%);
+}
+.delete-button{
+    background-color: hsl(10,90%,50%);
+}
+.delete-button:hover{
+    background-color: hsl(10,90%,40%);
+}
+.move-right-button{
+    background-color: hsl(207,90%,60%);
+}
+.move-right-button:hover{
+    background-color: hsl(207,90%,50%);
+}
+input[type="text"]{
+    text-align: center;
+    width: 80%;
+    grid-column: 1/-1;
+    font-size: 1rem;
+    padding: 10px;
+    border: 2px solid hsla(0,0%,80%,0.5);
+    border-radius: 5px;
+    color: hsla(0,0%,0%,0.5);
 }

@@ -11,9 +11,28 @@ type Props = {
 }
 
 export default function ToDoColumn(props: Props) {
+
+
+
+    function formatStatus(inStatus: string){
+        switch (inStatus) {
+            case "OPEN": {
+                return "Open";
+            }
+            case "IN_PROGRESS": {
+                return "In Progress";
+            }
+            case "DONE": {
+                return "Done";
+            }
+        }
+    }
+
+
+
     return (
         <div className="todo-column">
-            <h2>{props.status}</h2>
+            <h2>{formatStatus(props.status)}</h2>
             {
                 props.todos.map((todo,index)=>{
                     return <ToDoCard todo={todo} updateToDoList={props.updateToDoList} key={index}/>
