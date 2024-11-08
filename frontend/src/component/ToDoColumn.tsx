@@ -34,8 +34,8 @@ export default function ToDoColumn(props: Props) {
         <div className="todo-column">
             <h2>{formatStatus(props.status)}</h2>
             {
-                props.todos.map((todo,index)=>{
-                    return <ToDoCard todo={todo} updateToDoList={props.updateToDoList} key={index}/>
+                props.todos.map((todo)=>{
+                    return <ToDoCard todo={todo} updateToDoList={props.updateToDoList} key={todo.id}/>
                 })
             }
             <div>

@@ -19,15 +19,20 @@ export default function ToDoCard(props: Props) {
     }
     function updateToDo(event: ChangeEvent<HTMLInputElement>){
 
-        setDescription(event.target.value)
+        let newDescription = event.target.value
+
+        setDescription(newDescription)
+
         console.log(event.target.value)
+
+
+
         axios.put("api/todo/"+props.todo.id,{
             ...props.todo,
-            description:event.target.value
-        })
-            .then(props.updateToDoList)
-
+            description: newDescription
+        } as ToDo)
     }
+
     function moveToDoLeft(){
 
     }
@@ -37,7 +42,7 @@ export default function ToDoCard(props: Props) {
 
     return (
         <div className="todo-card">
-            <input type="text" value={description} onInput={updateToDo}/>
+            <input  value={description} onInput={updateToDo}/>
             <button className="move-left-button" onClick={moveToDoLeft}>move left</button>
             <button className="delete-button" onClick={deleteToDo}>delete</button>
             <button className="move-right-button" onClick={moveToDoRight}>move right</button>
