@@ -23,13 +23,16 @@ export default function App() {
   }, []);
 
   return (
-    <>
-      <h1>My ToDo App</h1>
-      {
-        ToDoStatusList.map((status,index)=>{
-          return <ToDoColumn status={status} todos={todos.filter(todo=>todo.status===status)} key={index}/>;
-      })}
-    </>
+      <>
+        <div className="todo-columns">
+          <h1>My ToDo App</h1>
+          {
+            ToDoStatusList.map((status, index) => {
+              return <ToDoColumn status={status} todos={todos.filter(todo => todo.status === status)} key={index}/>;
+            })}
+        </div>
+      </>
+
   )
 }
 

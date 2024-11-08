@@ -1,0 +1,5 @@
+.todo-column{
+    display: flex;
+    justify-content: space-evenly;
+
+}
